@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a14de5c9f2.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-left">
+            <img class="logo" src="/images/icons8-monopoly.png" alt="logo">
+            <ul>
+                <li><img src="/images/icons8-alarm-30.png" alt=""></li>
+                <li><img src="/images/icons8-composing-mail-24.png" alt=""></li>
+                <li><img src="/images/icons8-laptop-play-video-48.png" alt=""></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="searchBox">
+                <img src="/images/search.png" alt="">
+                <input id="search" type="text" placeholder="Search here">
+                <button id='searchBtn'> Search</button>
+            </div>
+            <div class="navUserIcon online" onclick="openNavToggle()">
+                <img src="/images/profile-pic.jpg" alt="">
+            </div>
+        </div>
+
+        <!-- Setting menue drop down -->
+        <div class="settingMenue">
+            <div id="darkBtn">
+                <span></span>
+            </div>
+
+            <div class="settingMenueInner">
+                <div class="userProfile">
+                    <img src="./images/profile-pic.jpg" alt="">
+                    <div>
+                        <p>Mian Nomi</p>
+
+                        <a href="">See your Profile</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="userProfile">
+                    <img src="./images/feedback.png" alt="">
+                    <div>
+                        <p>FeedBack</p>
+
+                        <a href="">Help us to improve </a>
+                    </div>
+                </div>
+                <hr>
+                <div class="settingLink">
+                    <img src="./images/setting.png" class="settingIcon" alt="">
+                    <a href="#">setting and privacy <img src="./images/arrow.png" width="10px" alt=""></a>
+
+                </div>
+                <div class="settingLink">
+                    <img src="./images/help.png" class="settingIcon" alt="">
+                    <a href="#">Help and Support <img src="./images/arrow.png" width="10px" alt=""></a>
+
+                </div>
+                <div class="settingLink">
+                    <img src="./images/display.png" class="settingIcon" alt="">
+                    <a href="#">Display and Accessability <img src="./images/arrow.png" width="10px" alt=""></a>
+
+                </div>
+                <div class="settingLink">
+                    <img src="./images/logout.png" class="settingIcon" alt="">
+                    <a href="#">Logout <img src="./images/arrow.png" width="10px" alt=""></a>
+
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <div class="container">
+        <div class="leftSideBar">
+            <!-- left side bar content -->
+            <div class="links">
+                <a href="#"><img src="/images/icons8-us-news-30.png" alt="newsImage">Latest going on</a>
+                <a href="#"><img src="/images/icons8-friends-60.png" alt="newsImage">Friends</a>
+                <a href="#"><img src="/images/icons8-business-group-30.png" alt="newsImage">Groups</a>
+                <a href="#"><img src="/images/icons8-online-store-50.png" alt="newsImage">Market Trends</a>
+                <a href="#"><img src="/images/see-more.png" alt="newsImage">posts</a>
+            </div>
+            <div class="shortcuts">
+                <p>Recents</p>
+                <a href='https://www.facebook.com/marketplace/learn-more/' target="_blank">
+                    <img src="/images/shortcut-1.png" alt=""> Market Knowledge</a>
+                <a href="https://www.facebook.com/numan.yousaf.961" target="_blank">
+                    <img src="/images/pexels-belle-co-1000445.jpg" alt="">Recent Friends</a>
+                <a href="https://www.linkedin.com/in/mian-nauman-yousaf/" target="_blank">
+                    <img src="/images/profile-pic.jpg" alt="">Linkedin</a>
+            </div>
+        </div>
+        <!-- Main Content-->
+        <div class="centerContent">
+            <div class="stories">
+                <div class="story">
+                    <img src="./images/profile-pic.jpg" alt="">
+                    <p>Post Your Stroies</p>
+                </div>
+                <div class="story story2">
+                    <img src="./images/member-3.png" alt="">
+                    <p>Esha</p>
+                </div>
+                <div class="story story3">
+                    <img src="./images/member-2.png" alt="">
+                    <p>Nomi</p>
+                </div>
+                <div class="story story4">
+                    <img src="./images/member-1.png" alt="">
+                    <p>Rina</p>
+                </div>
+                <div class="story story5">
+                    <img src="./images/member-4.png" alt="">
+                    <p>Rina</p>
+                </div>
+
+            </div>
+
+
+            <div class="postsContainer">
+                <div class="userProfile">
+                    <img src="./images/profile-pic.jpg" alt="">
+                    <div>
+                        <p>Mian Nomi</p>
+                        <small>Public <i class="fa fa-caret-down"></i> </small>
+                    </div>
+                </div>
+
+                <div class="posts">
+                    <textarea rows="3" placeholder="What is on your mind Nomi"></textarea>
+
+                    <div class="postLinks">
+                        <a href="">
+                            <img src="./images/live-video.png" alt="">
+                            live video
+
+                        </a>
+                        <a href="">
+                            <img src="./images/photo.png" alt="">
+                            Photos/Videos
+
+                        </a>
+                        <a href="">
+                            <img src="./images/feeling.png" alt="">
+                            Feelings/Activities
+
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="feeds">
+                <div class="postRow">
+                    <div class="userProfile">
+                        <img src="./images/profile-pic.jpg" alt="">
+                        <div>
+                            <p>Mian Nomi</p>
+
+                            <span>November 21-2022,4:00 Am </span>
+                        </div>
+                    </div>
+                    <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+                </div>
+
+                <p class="postTextArea"> The one who loves you will never leave you!</p>
+                <img src="./images/feed6.jpg" class="postImage" alt="">
+                <div class="postRow">
+                    <div class="activity">
+                        <div><img src="./images/like-blue.png" alt="">12K</div>
+                        <div><img src="./images/comments.png" alt="">400</div>
+
+                        <div><img src="./images/share.png" alt="">200</div>
+                    </div>
+                    <div class="profileIcon">
+                        <img src="./images/profile-pic.jpg" alt=""><i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="feeds">
+                <div class="postRow">
+                    <div class="userProfile">
+                        <img src="./images/profile-pic.jpg" alt="">
+                        <div>
+                            <p>Mian Nomi</p>
+
+                            <span>November 21-2022,4:00 Am </span>
+                        </div>
+                    </div>
+                    <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+                </div>
+                <p class="postTextArea"> The one who loves you will never leave you!</p>
+                <img src="./images/feed1.jpg" class="postImage" alt="">
+                <div class="postRow">
+                    <div class="activity">
+                        <div><img src="./images/like-blue.png" alt="">12K</div>
+                        <div><img src="./images/comments.png" alt="">400</div>
+                        <div><img src="./images/share.png" alt="">200</div>
+                    </div>
+                    <div class="profileIcon">
+                        <img src="./images/profile-pic.jpg" alt=""><i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="feeds">
+                <div class="postRow">
+                    <div class="userProfile">
+                        <img src="./images/profile-pic.jpg" alt="">
+                        <div>
+                            <p>Mian Nomi</p>
+
+                            <span>November 21-2022,4:00 Am </span>
+                        </div>
+                    </div>
+                    <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+                </div>
+
+                <p class="postTextArea"> The one who loves you will never leave you!</p>
+                <img src="./images/feed2.jpg" class="postImage" alt="">
+                <div class="postRow">
+                    <div class="activity">
+                        <div><img src="./images/like-blue.png" alt="">12K</div>
+                        <div><img src="./images/comments.png" alt="">400</div>
+                        <div><img src="./images/share.png" alt="">200</div>
+                    </div>
+                    <div class="profileIcon">
+                        <img src="./images/profile-pic.jpg" alt=""><i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+            <div id="feeds" class="feeds">
+                <div class="postRow">
+                    <div class="userProfile">
+                        <img src="./images/profile-pic.jpg" alt="">
+                        <div>
+                            <p>Mian Nomi</p>
+
+                            <span>November 21-2022,4:00 Am </span>
+                        </div>
+                    </div>
+                    <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+                </div>
+
+                <p class="postTextArea"> The one who loves you will never leave you!</p>
+                <img src="./images/feed3.jpg" class="postImage" alt="">
+                <div class="postRow">
+                    <div class="activity">
+                        <div><img src="./images/like-blue.png" alt="">12K</div>
+                        <div><img src="./images/comments.png" alt="">400</div>
+                        <div><img src="./images/share.png" alt="">200</div>
+                    </div>
+                    <div class="profileIcon">
+                        <img src="./images/profile-pic.jpg" alt=""><i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feeds">
+                <div class="postRow">
+                    <div class="userProfile">
+                        <img src="./images/profile-pic.jpg" alt="">
+                        <div>
+                            <p>Mian Nomi</p>
+
+                            <span>November 21-2022,4:00 Am </span>
+                        </div>
+                    </div>
+                    <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+                </div>
+
+                <p class="postTextArea"> The one who loves you will never leave you!</p>
+                <img src="./images/feed4.jpg" class="postImage" alt="">
+                <div class="postRow">
+                    <div class="activity">
+                        <div><img src="./images/like-blue.png" alt="">12K</div>
+                        <div><img src="./images/comments.png" alt="">400</div>
+                        <div><img src="./images/share.png" alt="">200</div>
+                    </div>
+                    <div class="profileIcon">
+                        <img src="./images/profile-pic.jpg" alt=""><i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+
+          
+            <button type="button" class="loadMore">Load More</button>
+        </div>
+
+
+        <!-- Right Side bar Content -->
+        <div class="rightSideBar">
+
+            <div class="sideBarTitle">
+                <h4>Events</h4>
+                <a href="#">All events</a>
+            </div>
+            <div class="event">
+                <div class="leftSideEvents">
+                    <h3> 09</h3>
+                    <span>December</span>
+                </div>
+                <div class="rightSideEvents">
+                    <h4>Social Media</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Programmers Force</p>
+                    <a href="https://pf.com.pk/">Join Us</a>
+                </div>
+            </div>
+
+            <div class="event">
+                <div class="leftSideEvents">
+                    <h3> 29</h3>
+                    <span>December</span>
+                </div>
+                <div class="rightSideEvents">
+                    <h4>Digital Market</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Programmers Force</p>
+                    <a href="https://pf.com.pk/">Join Us</a>
+                </div>
+            </div>
+            <div class="event">
+                <div class="leftSideEvents">
+                    <h3> 1st</h3>
+                    <span>January</span>
+                </div>
+                <div class="rightSideEvents">
+                    <h4>Replacement of trainees</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Programmers Force</p>
+                    <a href="https://pf.com.pk/">Join Us</a>
+                </div>
+            </div>
+            <div class="onlinePeople">
+                <div class="online">
+                    <img src="./images/member-1.png" alt="person1">
+                </div>
+                <p>Esha</p>
+            </div>
+            <div class="onlinePeople">
+                <div class="online">
+                    <img src="./images/member-2.png" alt="person1">
+                </div>
+                <p>Nomi</p>
+            </div>
+            <div class="onlinePeople">
+                <div class="online">
+                    <img src="./images/member-3.png" alt="person1">
+                </div>
+                <p>sara</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer">
+        <p>This is the non official website for the educational use only</p>
+    </div>
+
+
+
+    <script src="script.js"></script>
+
+
+
+</body>
+
+</html>
