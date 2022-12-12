@@ -361,22 +361,22 @@ span h3 {
 }
 
 .story2 {
-    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5)), url("./images/status-2.png");
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5)), url("./images/images.jfif");
 
 }
 
 .story3 {
-    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5)), url("./images/status-3.png");
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5)), url("./images/images\ \(1\).jfif");
 
 }
 
 .story4 {
-    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5)), url("./images/status-4.png");
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5)), url("./images/Twitter-NFT-profile.jpg");
 
 }
 
 .story5 {
-    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5)), url("./images/status-5.png");
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5)), url("./images/Yuga-Labs-Bored-Ape-Yacht-Club-44661639472731-0.jpg");
 
 }
 
@@ -476,7 +476,7 @@ span h3 {
 }
 
 .postTextArea {
-    color: #cac7c7;
+    color: #1b1b1b;
     font-size: 15px;
     margin: 15px 0;
 
@@ -594,9 +594,10 @@ span h3 {
     padding: 2px 3px;
     cursor: pointer;
     transition: padding-left 0.5s;
-     background: 0.5s;
+    background: 0.5s;
 }
-#darkBtn span{
+
+#darkBtn span {
     width: 18px;
     height: 18px;
     background: white;
@@ -604,7 +605,7 @@ span h3 {
     display: flex;
 }
 
-#darkBtn .darkBtnOn{
+#darkBtn .darkBtnOn {
     padding-left: 23px;
     background: black;
 
@@ -612,49 +613,61 @@ span h3 {
 
 
 /* Media Querries for responsiveness */
-@media(max-width: 900px){
-    .leftSideBar{
+@media(max-width: 900px) {
+    .leftSideBar {
         display: none;
     }
-    .rightSideBar{
+
+    .rightSideBar {
         display: none;
     }
-    nav{
+
+    nav {
         flex-wrap: wrap;
     }
-    .searchBox{
+
+    .searchBox {
         display: none;
     }
-    .nav-left ul li img{
+
+    .nav-left ul li img {
         width: 20px;
         margin: 0 8px;
     }
-    .navUserIcon img{
+
+    .navUserIcon img {
         width: 30px;
         margin-left: 0;
 
     }
-    .navUserIcon{
-        margin-left: 0 ;
+
+    .navUserIcon {
+        margin-left: 0;
     }
-    .postLinks{
+
+    .postLinks {
         display: inline;
     }
-    .centerContent{
+
+    .centerContent {
         flex-basis: 92.1%;
     }
-    .postsContainer{
+
+    .postsContainer {
         flex-wrap: wrap;
     }
-    .container{
+
+    .container {
         flex-wrap: wrap;
         /* display: inline-flexbox; */
     }
-    .stories{
-      display: none;
-    
+
+    .stories {
+        display: none;
+
     }
-    .story{
+
+    .story {
         display: fit-content;
     }
 }

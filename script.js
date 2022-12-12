@@ -1,102 +1,195 @@
-const userName = document.getElementById('username');
-const password = document.getElementById('password');
-const loginToAccount = document.getElementById('loginBtn');
+
 const searchBtn = document.getElementById('searchBtn')
 const searchText = document.getElementById('search');
 const posts = document.getElementsByClassName('postTextArea')
 const url = 'https://dummyjson.com/posts/user'
 const settingDropDown = document.querySelector('.settingMenue')
 var darkBtn = document.getElementById('darkBtn')
+let feeds = document.getElementById('feeds')
+const loadButton = document.querySelector('#loadButton')
 
-async function checkAuth(e) {
-  e.preventDefault();
-  const res = await fetch("https://dummyjson.com/auth/login", {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
 
-      username: `${userName.value}`,
-      password: `${password.value}`,
 
-    }),
-  });
-  const data = await res.json()
-  localStorage.setItem('token', JSON.stringify(data.token));
-  localStorage.setItem('email', JSON.stringify(data.email));
-  console.log(data);
-  console.log(userName.value, password.value)
-
-  if (data.message != "Invalid credentials")
-    window.location.href = "./index.html"
-
-}
+/****************************************Search post function**************************************************/
 
 async function searchPosts(e) {
   e.preventDefault();
+  feeds.innerHTML = ''
   let text = searchText.value
-  const res = await fetch(`${url}/${text}`)
+  const res = await fetch(`https://dummyjson.com/posts/search?q=${text}`)
   const data = await res.json();
-  posts[0].innerText = data.posts[0].body
-  posts[1].innerText = data.posts[1].body
-  posts[2].innerText = data.posts[2].body
-  posts[3].innerText = data.posts[3].body
-  posts[4].innerText = data.posts[4].body
-  posts[5].innerText = data.posts[5].body
-  console.log(data.posts[0].body)
+  console.log(data)
+  for (let i = 0; i < data.posts.length; i++) {
+    // posts[i].innerText = data.posts[i].body
+    feeds.innerHTML += `<div class="postRow">
+    <div class="userProfile">
+        <img src="./images/profile-pic.jpg" alt="">
+        <div>
+            <p>Mian Nomi</p>
+
+            <span>November 21-2022,4:00 Am </span>
+        </div>
+    </div>
+    <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+</div>
+<h3>${data.posts[i].title}</h1>
+<p class="postTextArea"> ${data.posts[i].body}</p>
+<img src="./images/feed3.jpg" class="postImage" alt="">
+<div class="postRow">
+    <div class="activity">
+        <div><img src="./images/like-blue.png" alt="">${data.posts[i].reactions}</div>
+        <div><img src="./images/comments.png" alt="">400</div>
+        <div><img src="./images/share.png" alt="">200</div>
+    </div>
+    <div class="profileIcon">
+        <img src="./images/profile-pic.jpg" alt=""><i class="fas fa-caret-down"></i>
+    </div>
+</div>`
+  }
+
 
 }
-
-
 searchBtn.addEventListener('click', searchPosts)
 
 
 window.onload = async function (e) {
   e.preventDefault()
-  const res = await fetch('https://dummyjson.com/posts?limit=10')
-   const data = await res.json();
-    console.log(data);
-  console.log(data.posts[0].title)
-  posts[0].innerText = data.posts[0].body
-  posts[1].innerText = data.posts[1].body
-  posts[2].innerText = data.posts[2].body
-  posts[3].innerText = data.posts[3].body
-  posts[4].innerText = data.posts[4].body
-  posts[5].innerText = data.posts[5].body
+  const res = await fetch('https://dummyjson.com/posts')
+  const data = await res.json();
+  console.log(data);
+  for (let i = 1; i < 10; i++) {
+    feeds.innerHTML += `<div class="postRow">
+    <div class="userProfile">
+        <img src="./images/profile-pic.jpg" alt="">
+        <div>
+            <p>Mian Nomi</p>
+
+            <span>November 21-2022,4:00 Am </span>
+        </div>
+    </div>
+    <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+</div>
+<h3>${data.posts[i].title}</h1>
+<p class="postTextArea"> ${data.posts[i].body}</p>
+<img src="./images/feed3.jpg" class="postImage" alt="">
+<div class="postRow">
+    <div class="activity">
+        <div><img src="./images/like-blue.png" alt="">${data.posts[i].reactions}</div>
+        <div><img src="./images/comments.png" alt="">400</div>
+        <div><img src="./images/share.png" alt="">200</div>
+    </div>
+    <div class="profileIcon">
+        <img src="./images/profile-pic.jpg" alt=""><i class="fas fa-caret-down"></i>
+    </div>
+</div>`
+
+  }
+
 }
 
 
-loginToAccount.addEventListener('click', checkAuth)
+//****************************************to load more posts on the scroll *************************************
 
 
-// heroImage.innerHTML += `<img src="${json.image.url}" />`
 
+
+async function loadMorePosts(e) {
+  // e.preventDefault();
+  // feeds.innerHTML =+ ''
+  let text = searchText.value
+  const res = await fetch(`https://dummyjson.com/posts`)
+  const data = await res.json();
+  console.log(data)
+  for (let i = 10; i < 20; i++) {
+    // posts[i].innerText = data.posts[i].body
+    feeds.innerHTML += `<div class="postRow">
+    <div class="userProfile">
+        <img src="./images/profile-pic.jpg" alt="">
+        <div>
+            <p>Mian Nomi</p>
+
+            <span>November 21-2022,4:00 Am </span>
+        </div>
+    </div>
+    <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+</div>
+<h3>${data.posts[i].title}</h1>
+<p class="postTextArea"> ${data.posts[i].body}</p>
+<img src="./images/feed3.jpg" class="postImage" alt="">
+<div class="postRow">
+    <div class="activity">
+        <div><img src="./images/like-blue.png" alt="">${data.posts[i].reactions}</div>
+        <div><img src="./images/comments.png" alt="">400</div>
+
+        <div><img src="./images/share.png" alt="">200</div>
+        <p class="postTextArea"> ${data.posts[i].body}</p>
+    </div>
+    <div class="profileIcon">
+        <img src="./images/profile-pic.jpg" alt=""><i class="fas fa-caret-down"></i>
+    </div>
+</div>`
+  }
+
+}
+
+
+
+
+
+
+/************************************on Scroll function*********************************************************/
+
+
+
+window.onscroll = function (ev) {
+  if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 20) {
+    // alert("you're at the bottom of the page");
+    loadMorePosts()
+  }
+};
+loadButton.addEventListener('click', loadMorePosts)
 
 // function to open the navigation bar
 
-function openNavToggle() {
-  settingDropDown.classList.toggle('settingMenueHeight');
-}
+// darkBtn.onclick = function () {
+//   darkBtn.classList.toggle("darkBtnOn");
+//   document.body.classList.toggle('dark-theme')
+//   if (localStorage.getItem('them') == 'light') {
+//     localStorage.setItem('theme', 'dark');
+//   }
+//   else {
+//     localStorage.setItem('theme', 'light');
+//   }
+// }
+// if (localStorage.getItem('them') == 'light') {
+//   darkBtn.classList.remove('darkBtnOn');
+//   document.body.classList.remove('dark-theme')
+
+// }
+// else if (localStorage.getItem('them') == 'dark') {
+//   darkBtn.classList.add('darkBtnOn');
+//   document.body.classList.add('dark-theme')
+// }
+// else {
+//   localStorage.setItem('theme', 'light');
+// }
 
 
-darkBtn.onclick = function () {
-  darkBtn.classList.toggle("darkBtnOn");
-  document.body.classList.toggle('dark-theme')
-  if (localStorage.getItem('them') == 'light') {
-    localStorage.setItem('theme', 'dark');
-  }
-  else {
-    localStorage.setItem('theme', 'light');
-  }
-}
-if (localStorage.getItem('them') == 'light') {
-  darkBtn.classList.remove('darkBtnOn');
-  document.body.classList.remove('dark-theme')
 
-}
-else if (localStorage.getItem('them') == 'dark') {
-  darkBtn.classList.add('darkBtnOn');
-  document.body.classList.add('dark-theme')
-}
-else {
-  localStorage.setItem('theme', 'light');
-}
+
+
+
+
+
+
+
+// window.onscroll = function(ev) {
+//   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+//       // you're at the bottom of the page
+//       alert("you're at the bottom of the page");
+
+//   }
+// };
+
+
+
