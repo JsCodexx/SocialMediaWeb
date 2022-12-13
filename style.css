@@ -105,7 +105,7 @@ nav {
     font-size: 13px;
     color: #0a0a0a;
     text-decoration: none;
-
+  
 }
 
 .settingMenueInner {
@@ -164,7 +164,7 @@ nav {
 
 .rightSideBar {
     color: #1876f2;
-    flex-basis: 20%;
+    flex-basis: 18%;
     position: sticky;
     /* For browsers that do not support gradients */
     background-color: rgb(4, 0, 255);
@@ -401,7 +401,7 @@ span h3 {
 .userProfile {
     display: flex;
     align-items: center;
-
+    padding: 20px;
 }
 
 .userProfile img {
@@ -471,7 +471,7 @@ span h3 {
 
 .userProfile span {
     font-size: 13px;
-    color: #9a9a9a;
+    color: #140000;
 
 }
 
@@ -489,15 +489,20 @@ span h3 {
 
 }
 
+
 .postRow {
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: space-between;
+}
+.activity{
+    background-color: #328db1;
 }
 
 .activity div img {
     width: 18px;
     margin-right: 10px;
+    padding: 20px;
 
 }
 
@@ -671,3 +676,71 @@ span h3 {
         display: fit-content;
     }
 }
+
+
+
+
+/* ***************************Code for the comment Section********************************88 */
+
+.reset-c {
+    padding: 0px;
+    margin: 0px;
+   }
+  .msg-all-cont {
+   list-style: none;
+   padding: 5px;
+   background: #7c898a;
+   height: auto;
+   
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    
+  }
+  .t-h {
+   display: inline-flex;
+   margin: 0px 5px;
+
+  }
+  
+  #i-s- {
+    margin: 0px 2.5%;
+  }
+  .fa-user-s {
+    font-size: 35px;
+    color: rgb(252, 249, 249);
+    padding: 10px;
+  }
+  
+  #-is- {
+    width: calc(100%);
+  }
+  
+  #msg-txt, #msg-head {
+    font-size: 18px;
+    font-family: Monospace;
+    /*
+      More/Extended Monospace:
+      "Lucida Console", Monaco, Monospace
+      "Courier New", Courier, Monospace
+    */
+  }
+  #msg-head {
+    color: #123962;
+  }
+  #msg-txt {
+    color: #FFFFFF;
+  }
+  
+  #other-h {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .mb {
+    font-size: 30px;
+    margin: 0px 7.5px;
+  }
+  

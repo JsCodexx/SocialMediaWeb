@@ -31,7 +31,6 @@ async function searchPosts() {
             <span>November 21-2022,4:00 Am </span>
         </div>
     </div>
-    <a href="#"><i class="fas fa-ellipsis-v"></i></a>
 </div>
 <h3>${data.posts[i].title}</h1>
 <p class="postTextArea"> ${data.posts[i].body}</p>
@@ -42,12 +41,10 @@ async function searchPosts() {
         <div><img src="./images/comments.png" alt="">400</div>
         <div><img src="./images/share.png" alt="">200</div>
     </div>
-    <div class="profileIcon">
-        <img src="./images/profile-pic.jpg" alt=""><i class="fas fa-caret-down"></i>
-    </div>
+
 </div>`
     }
- 
+
 }
 
 /********************************************On Load Function*************************************************/
@@ -58,33 +55,64 @@ window.onload = async function (e) {
     const data = await res.json();
     console.log(data);
     for (let i = 1; i < 10; i++) {
+
         feeds.innerHTML += `<div class="postRow">
-    <div class="userProfile">
-        <img src="./images/twitter.jpg" alt="">
-        <div>
-            <p>Mian Nomi</p>
+        <div class="userProfile">
+            <img src="/images/Twitter-NFT-profile.jpg" alt="">
+            <div>
+                <p>Mian Nomi</p>
 
-            <span>November 21-2022,4:00 Am </span>
+                <span>November 21-2022,4:00 Am </span>
+            </div>
         </div>
-    </div>
-    <a href="#"><i class="fas fa-ellipsis-v"></i></a>
-</div>
-<h3>${data.posts[i].title}</h1>
-<p class="postTextArea"> ${data.posts[i].body}</p>
-<img src="./images/feed3.jpg" class="postImage" alt="">
-<div class="postRow">
-    <div class="activity">
-        <div><img src="./images/like-blue.png" alt="">${data.posts[i].reactions}</div>
-        <div><img src="./images/comments.png" alt="">400</div>
-        <div><img src="./images/share.png" alt="">200</div>
-    </div>
-    <div class="profileIcon">
-        <img src="./images/profile-pic.jpg" alt=""><i class="fas fa-caret-down"></i>
-    </div>
-</div>`
+        <h3>${data.posts[i].title}</h1>
+            <p class="postTextArea"> ${data.posts[i].body}</p>
+            <img src="./images/feed3.jpg" class="postImage" alt="">
+            <div class="postRow">
+                <div class="activity">
+                    <div><img src="./images/like-blue.png" alt="">${data.posts[i].reactions}</div>
+                    <div><img src="./images/comments.png" alt="">400</div>
+                    <div><img src="./images/share.png" alt="">200</div>
+                </div>
+                <div class="msg-all-cont">
+                    <ul class="reset-c">
+                        <li id="i-s-" class="t-h">
+                            <div id="icon-h" class="reset-c">
 
+                            
+                        </li>
+                        <li id="-is-" class="t-h">
+                            <div id="msg-h" class="reset-c">
+                                <p id="msg-head" class="reset-c"></p>
+                                <p id="msg-txt" class="reset-c"><b class="ccs"> </b></p>
+                            </div>
+                        </li>
+                        <li class="t-h">
+                            <div id="other-h" class="reset-c">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>`
+        const beta = await fetch(`https://dummyjson.com/comments/post/${i}`)
+        let comment = await beta.json();
+        const postRow = document.querySelectorAll('.ccs')
+        for (let j = 0; j < comment.comments.length; j++) {
+            const commentsDiv = document.createElement("div");
+            commentsDiv.classList.add('comments')
+            postRow.forEach((postRow) => {
+                commentsDiv.innerHTML = `<i class = "fas fa-user fa-user-s"></i>${comment.comments[j].body}`;
+                postRow.appendChild(commentsDiv)
+
+            })
+
+
+
+        }
     }
-  
+
+
 }
 
 
@@ -109,7 +137,6 @@ async function loadMorePosts(e) {
             <span>November 21-2022,4:00 Am </span>
         </div>
     </div>
-    <a href="#"><i class="fas fa-ellipsis-v"></i></a>
 </div>
 <h3>${data.posts[i].title}</h1>
 <p class="postTextArea"> ${data.posts[i].body}</p>
@@ -120,14 +147,47 @@ async function loadMorePosts(e) {
         <div><img src="./images/comments.png" alt="">400</div>
 
         <div><img src="./images/share.png" alt="">200</div>
-        <p class="postTextArea"> ${data.posts[i].body}</p>
+    
     </div>
-    <div class="profileIcon">
-        <img src="./images/profile-pic.jpg" alt=""><i class="fas fa-caret-down"></i>
-    </div>
-</div>`
-    }
+    
+    <div class="msg-all-cont">
+    <ul class="reset-c">
+        <li id="i-s-" class="t-h">
+            <div id="icon-h" class="reset-c">
 
+            
+        </li>
+        <li id="-is-" class="t-h">
+            <div id="msg-h" class="reset-c">
+                <p id="msg-head" class="reset-c"></p>
+                <p id="msg-txt" class="reset-c"><b class="ccs"> </b></p>
+            </div>
+        </li>
+        <li class="t-h">
+            <div id="other-h" class="reset-c">
+            </div>
+        </li>
+    </ul>
+      </div>
+       </div>`
+
+
+        const beta = await fetch(`https://dummyjson.com/comments/post/${i}`)
+        let comment = await beta.json();
+        const postRow = document.querySelectorAll('.ccs')
+        for (let k = 0; k < comment.comments.length; k++) {
+            const commentsDiv = document.createElement("div");
+            commentsDiv.classList.add('comments')
+            postRow.forEach((postRow) => {
+                commentsDiv.innerHTML = `<i class = "fas fa-user fa-user-s"></i>${comment.comments[k].body}`;
+                postRow.appendChild(commentsDiv)
+
+            })
+
+
+
+        }
+    }
 
 }
 
@@ -136,9 +196,8 @@ async function loadMorePosts(e) {
 
 
 function logoutSession() {
-    // if (data.message != "Invalid credentials")
-    window.location.replace("./login.html")
 
+    window.location.replace("./login.html")
 }
 
 
