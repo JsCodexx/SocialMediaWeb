@@ -1,6 +1,7 @@
 const loginToAccount = document.getElementById('loginBtn');
 const userName = document.getElementById('username');
 const password = document.getElementById('password');
+alert("the username is 'kminchelle'  and the password is '0lplelR' ")
 
 /**************************************************Checking Authorization ************************************************************/
 async function checkAuth(e) {

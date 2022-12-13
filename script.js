@@ -7,21 +7,22 @@ const settingDropDown = document.querySelector('.settingMenue')
 var darkBtn = document.getElementById('darkBtn')
 let feeds = document.getElementById('feeds')
 const loadButton = document.querySelector('#loadButton')
-
+const logoutButton = document.querySelector('#logout')
 
 
 /****************************************Search post function**************************************************/
 
-async function searchPosts(e) {
-  e.preventDefault();
-  feeds.innerHTML = ''
-  let text = searchText.value
-  const res = await fetch(`https://dummyjson.com/posts/search?q=${text}`)
-  const data = await res.json();
-  console.log(data)
-  for (let i = 0; i < data.posts.length; i++) {
-    // posts[i].innerText = data.posts[i].body
-    feeds.innerHTML += `<div class="postRow">
+
+async function searchPosts() {
+    //   e.preventDefault();
+    feeds.innerHTML = ''
+    let text = searchText.value
+    const res = await fetch(`https://dummyjson.com/posts/search?q=${text}`)
+    const data = await res.json();
+    console.log(data)
+    for (let i = 0; i < data.posts.length; i++) {
+        // posts[i].innerText = data.posts[i].body
+        feeds.innerHTML += `<div class="postRow">
     <div class="userProfile">
         <img src="./images/profile-pic.jpg" alt="">
         <div>
@@ -45,22 +46,21 @@ async function searchPosts(e) {
         <img src="./images/profile-pic.jpg" alt=""><i class="fas fa-caret-down"></i>
     </div>
 </div>`
-  }
-
-
+    }
+ 
 }
-searchBtn.addEventListener('click', searchPosts)
 
+/********************************************On Load Function*************************************************/
 
 window.onload = async function (e) {
-  e.preventDefault()
-  const res = await fetch('https://dummyjson.com/posts')
-  const data = await res.json();
-  console.log(data);
-  for (let i = 1; i < 10; i++) {
-    feeds.innerHTML += `<div class="postRow">
+    e.preventDefault()
+    const res = await fetch('https://dummyjson.com/posts')
+    const data = await res.json();
+    console.log(data);
+    for (let i = 1; i < 10; i++) {
+        feeds.innerHTML += `<div class="postRow">
     <div class="userProfile">
-        <img src="./images/profile-pic.jpg" alt="">
+        <img src="./images/twitter.jpg" alt="">
         <div>
             <p>Mian Nomi</p>
 
@@ -83,26 +83,24 @@ window.onload = async function (e) {
     </div>
 </div>`
 
-  }
-
+    }
+  
 }
 
 
 //****************************************to load more posts on the scroll *************************************
 
 
-
-
 async function loadMorePosts(e) {
-  // e.preventDefault();
-  // feeds.innerHTML =+ ''
-  let text = searchText.value
-  const res = await fetch(`https://dummyjson.com/posts`)
-  const data = await res.json();
-  console.log(data)
-  for (let i = 10; i < 20; i++) {
-    // posts[i].innerText = data.posts[i].body
-    feeds.innerHTML += `<div class="postRow">
+    // e.preventDefault();
+    // feeds.innerHTML =+ ''
+    let text = searchText.value
+    const res = await fetch(`https://dummyjson.com/posts`)
+    const data = await res.json();
+    console.log(data)
+    for (let i = 10; i < 20; i++) {
+        // posts[i].innerText = data.posts[i].body
+        feeds.innerHTML += `<div class="postRow">
     <div class="userProfile">
         <img src="./images/profile-pic.jpg" alt="">
         <div>
@@ -128,26 +126,49 @@ async function loadMorePosts(e) {
         <img src="./images/profile-pic.jpg" alt=""><i class="fas fa-caret-down"></i>
     </div>
 </div>`
-  }
+    }
+
 
 }
 
 
+/* **************************************logout function***************************************************  */
 
 
+function logoutSession() {
+    // if (data.message != "Invalid credentials")
+    window.location.replace("./login.html")
+
+}
 
 
 /************************************on Scroll function*********************************************************/
 
 
-
 window.onscroll = function (ev) {
-  if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 20) {
-    // alert("you're at the bottom of the page");
-    loadMorePosts()
-  }
+    if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 20) {
+        // alert("you're at the bottom of the page");
+        loadMorePosts()
+    }
 };
+
+
+/************************************* Calling Area **************************************************************8 */
+
+
+searchBtn.addEventListener('click', searchPosts)
+
 loadButton.addEventListener('click', loadMorePosts)
+
+function openNavToggle() {
+    settingDropDown.classList.toggle('settingMenueHeight')
+}
+
+logoutButton.addEventListener('click', logoutSession)
+
+
+
+
 
 // function to open the navigation bar
 
@@ -173,23 +194,3 @@ loadButton.addEventListener('click', loadMorePosts)
 // else {
 //   localStorage.setItem('theme', 'light');
 // }
-
-
-
-
-
-
-
-
-
-
-// window.onscroll = function(ev) {
-//   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-//       // you're at the bottom of the page
-//       alert("you're at the bottom of the page");
-
-//   }
-// };
-
-
-
