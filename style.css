@@ -682,10 +682,7 @@ span h3 {
 
 /* ***************************Code for the comment Section********************************88 */
 
-.reset-c {
-    padding: 0px;
-    margin: 0px;
-   }
+/*  */
   .msg-all-cont {
    list-style: none;
    padding: 5px;
@@ -693,54 +690,29 @@ span h3 {
    height: auto;
    
   }
-  ul {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    
-  }
+
   .t-h {
    display: inline-flex;
    margin: 0px 5px;
 
   }
   
-  #i-s- {
-    margin: 0px 2.5%;
-  }
+ 
   .fa-user-s {
     font-size: 35px;
     color: rgb(252, 249, 249);
     padding: 10px;
   }
-  
-  #-is- {
-    width: calc(100%);
-  }
-  
+
   #msg-txt, #msg-head {
     font-size: 18px;
     font-family: Monospace;
-    /*
-      More/Extended Monospace:
-      "Lucida Console", Monaco, Monospace
-      "Courier New", Courier, Monospace
-    */
+  
   }
   #msg-head {
     color: #123962;
   }
   #msg-txt {
     color: #FFFFFF;
-  }
-  
-  #other-h {
-    display: inline-flex;
-    align-items: center;
-  }
-  
-  .mb {
-    font-size: 30px;
-    margin: 0px 7.5px;
   }
   

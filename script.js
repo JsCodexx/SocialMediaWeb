@@ -43,7 +43,24 @@ async function searchPosts() {
     </div>
 
 </div>`
+        const beta = await fetch(`https://dummyjson.com/comments/post/${i+1}`);
+        let comment = await beta.json();
+        console.log(comment)
+        const postRow = document.querySelectorAll('.ccs')
+        for (let k = 0; k < comment.comments.length; k++) {
+            const commentsDiv = document.createElement("div");
+            commentsDiv.classList.add('comments')
+            postRow.forEach((postRow) => {
+                commentsDiv.innerHTML = `<i class = "fas fa-user fa-user-s"></i>${comment.comments[k].body}`;
+                postRow.appendChild(commentsDiv)
+
+            })
+
+
+
+        }
     }
+
 
 }
 
@@ -54,13 +71,14 @@ window.onload = async function (e) {
     const res = await fetch('https://dummyjson.com/posts')
     const data = await res.json();
     console.log(data);
-    for (let i = 1; i < 10; i++) {
+    let i = 0;
+    for (i = 1; i < 10; i++) {
 
         feeds.innerHTML += `<div class="postRow">
         <div class="userProfile">
             <img src="/images/Twitter-NFT-profile.jpg" alt="">
             <div>
-                <p>Mian Nomi</p>
+                <p>${data.posts[i].userId}</</p>
 
                 <span>November 21-2022,4:00 Am </span>
             </div>
@@ -111,83 +129,77 @@ window.onload = async function (e) {
 
         }
     }
-
-
-}
-
-
-//****************************************to load more posts on the scroll *************************************
-
-
-async function loadMorePosts(e) {
-    // e.preventDefault();
-    // feeds.innerHTML =+ ''
-    let text = searchText.value
-    const res = await fetch(`https://dummyjson.com/posts`)
-    const data = await res.json();
-    console.log(data)
-    for (let i = 10; i < 20; i++) {
-        // posts[i].innerText = data.posts[i].body
-        feeds.innerHTML += `<div class="postRow">
-    <div class="userProfile">
-        <img src="./images/profile-pic.jpg" alt="">
-        <div>
-            <p>Mian Nomi</p>
-
-            <span>November 21-2022,4:00 Am </span>
-        </div>
-    </div>
-</div>
-<h3>${data.posts[i].title}</h1>
-<p class="postTextArea"> ${data.posts[i].body}</p>
-<img src="./images/feed3.jpg" class="postImage" alt="">
-<div class="postRow">
-    <div class="activity">
-        <div><img src="./images/like-blue.png" alt="">${data.posts[i].reactions}</div>
-        <div><img src="./images/comments.png" alt="">400</div>
-
-        <div><img src="./images/share.png" alt="">200</div>
-    
-    </div>
-    
-    <div class="msg-all-cont">
-    <ul class="reset-c">
-        <li id="i-s-" class="t-h">
-            <div id="icon-h" class="reset-c">
-
+    window.onscroll = async function (ev) {
+        if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 20) {
+            // alert("you're at the bottom of the page");
+            for (i; i <= 20; i++) {
+                feeds.innerHTML += `<div class="postRow">
+                <div class="userProfile">
+                    <img src="./images/profile-pic.jpg" alt="">
+                    <div>
+                        <p>${data.posts[i].userId}</p>
             
-        </li>
-        <li id="-is-" class="t-h">
-            <div id="msg-h" class="reset-c">
-                <p id="msg-head" class="reset-c"></p>
-                <p id="msg-txt" class="reset-c"><b class="ccs"> </b></p>
+                        <span>November 21-2022,4:00 Am </span>
+                    </div>
+                </div>
             </div>
-        </li>
-        <li class="t-h">
-            <div id="other-h" class="reset-c">
-            </div>
-        </li>
-    </ul>
-      </div>
-       </div>`
+            <h3>${data.posts[i].title}</h1>
+            <p class="postTextArea"> ${data.posts[i].body}</p>
+            <img src="./images/feed3.jpg" class="postImage" alt="">
+            <div class="postRow">
+                <div class="activity">
+                    <div><img src="./images/like-blue.png" alt="">${data.posts[i].reactions}</div>
+                    <div><img src="./images/comments.png" alt="">400</div>
+            
+                    <div><img src="./images/share.png" alt="">200</div>
+                
+                </div>
+                
+                <div class="msg-all-cont">
+                <ul class="reset-c">
+                    <li id="i-s-" class="t-h">
+                        <div id="icon-h" class="reset-c">
+            
+                        
+                    </li>
+                    <li id="-is-" class="t-h">
+                        <div id="msg-h" class="reset-c">
+                            <p id="msg-head" class="reset-c"></p>
+                            <p id="msg-txt" class="reset-c"><b class="ccs"> </b></p>
+                        </div>
+                    </li>
+                    <li class="t-h">
+                        <div id="other-h" class="reset-c">
+                        </div>
+                    </li>
+                </ul>
+                  </div>
+                   </div>`
 
 
-        const beta = await fetch(`https://dummyjson.com/comments/post/${i}`)
-        let comment = await beta.json();
-        const postRow = document.querySelectorAll('.ccs')
-        for (let k = 0; k < comment.comments.length; k++) {
-            const commentsDiv = document.createElement("div");
-            commentsDiv.classList.add('comments')
-            postRow.forEach((postRow) => {
-                commentsDiv.innerHTML = `<i class = "fas fa-user fa-user-s"></i>${comment.comments[k].body}`;
-                postRow.appendChild(commentsDiv)
+                const beta = await fetch(`https://dummyjson.com/comments/post/${i}`)
+                let comment = await beta.json();
+                const postRow = document.querySelectorAll('.ccs')
+                for (let k = 0; k < comment.comments.length; k++) {
+                    const commentsDiv = document.createElement("div");
+                    commentsDiv.classList.add('comments')
+                    postRow.forEach((postRow) => {
+                        commentsDiv.innerHTML = `<i class = "fas fa-user fa-user-s"></i>${comment.comments[k].body}`;
+                        postRow.appendChild(commentsDiv)
 
-            })
+                    })
 
 
+
+                }
+                if (i == 30) break;
+            }
 
         }
-    }
+    };
+
+
+
 
 }
 
@@ -204,12 +216,7 @@ function logoutSession() {
 /************************************on Scroll function*********************************************************/
 
 
-window.onscroll = function (ev) {
-    if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 20) {
-        // alert("you're at the bottom of the page");
-        loadMorePosts()
-    }
-};
+
 
 
 /************************************* Calling Area **************************************************************8 */
@@ -217,7 +224,7 @@ window.onscroll = function (ev) {
 
 searchBtn.addEventListener('click', searchPosts)
 
-loadButton.addEventListener('click', loadMorePosts)
+// loadButton.addEventListener('click', loadMorePosts)
 
 function openNavToggle() {
     settingDropDown.classList.toggle('settingMenueHeight')
